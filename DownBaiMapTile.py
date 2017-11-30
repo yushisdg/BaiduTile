@@ -13,7 +13,7 @@ def download(x,y,z,url):
     r.raise_for_status()
     r.encoding=r.apparent_encoding
     print(psycopg2.Binary(r.content));
-    xyz=z+x+z;
+    xyz=z+x+y;
     conn = psycopg2.connect(database="superpower", user="postgres", password="postgres", host="192.168.20.62",
                             port="5432");
     cur = conn.cursor();
@@ -46,7 +46,8 @@ def gci(filepath):
         x=arra[length-2];
         y=arra[length-1].replace(".png","");
         print(z+x+y);
+        download(x,y,z,url);
       # print (os.path.join(filepath,fi_d))
 
-gci('F:\GisMap\img5\_alllayers\L16')
+gci('E:\map\mapto16')
 # download('199','51','10',url);
